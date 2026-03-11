@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Admin Ticket - Streaming Quilla</title>
+  <link rel="icon" href="logo de streaming Quilla.jpeg" type="image/jpeg" />
+  <link rel="manifest" href="manifest.json" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Quilla Admin" />
+  <link rel="stylesheet" href="admin.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#000000" />
+</head>
+<body>
+  <div class="background-glow"></div>
+
+  <div class="toast" id="toast"></div>
+
+  <main class="layout">
+    <section class="admin-container" id="adminPanel">
+      <div class="panel-header">
+        <div class="brand">
+          <img src="logo de streaming Quilla.jpeg" alt="Logo Streaming Quilla" class="brand-logo" />
+          <div>
+            <span class="badge">⚡ Panel Admin Premium</span>
+            <h2>🎫 Ticket Venta</h2>
+            <p>Genera, revisa y envía tickets con una experiencia visual más profesional.</p>
+          </div>
+        </div>
+      </div>
+
+      <form id="ventaForm">
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="nombre">👤 Nombre del Cliente</label>
+            <input type="text" id="nombre" placeholder="Ej. Juan Pérez" required />
+          </div>
+
+          <div class="form-group">
+            <label for="producto">🎬 Producto</label>
+            <select id="producto" required>
+              <option value="Netflix">Netflix</option>
+              <option value="Disney+">Disney+</option>
+              <option value="Prime Video">Prime Video</option>
+              <option value="HBO Max">HBO Max</option>
+              <option value="Spotify">Spotify</option>
+              <option value="Crunchyroll">Crunchyroll</option>
+              <option value="Paramount+">Paramount+</option>
+              <option value="Youtube Premium">Youtube Premium</option>
+              <option value="Apple TV+">Apple TV+</option>
+              <option value="Vix">Vix</option>
+              <option value="Plex">Plex</option>
+              <option value="ChatGPT pro">ChatGPT pro</option>
+              <option value="Canva pro">Canva pro</option>
+              <option value="Deezer">Deezer</option>
+              <option value="Picsart">Picsart</option>
+              <option value="Win play">Win play</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="tipo">🏷️ Tipo de Plan</label>
+            <select id="tipo" required>
+              <option value="Perfil">Perfil</option>
+              <option value="Cuenta Completa">Cuenta Completa</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="precio">💰 Precio (COP)</label>
+            <input type="number" id="precio" placeholder="Ej. 15000" required />
+          </div>
+
+          <div class="form-group">
+            <label for="correo">📧 Correo</label>
+            <input type="email" id="correo" placeholder="correo@ejemplo.com" required />
+          </div>
+
+          <div class="form-group">
+            <label for="contrasena">🔑 Contraseña</label>
+            <input type="text" id="contrasena" placeholder="Escribe la contraseña" required />
+          </div>
+
+          <div class="form-group" id="perfilGroup">
+            <label for="perfil">👤 Perfil (solo si es Perfil)</label>
+            <input type="text" id="perfil" placeholder="Ej. Perfil 1" />
+          </div>
+
+          <div class="form-group full-width">
+            <label for="numero">📲 Número WhatsApp</label>
+            <input type="text" id="numero" placeholder="Ej. 3001234567" required />
+          </div>
+        </div>
+
+        <div class="actions">
+          <button type="button" class="secondary-btn" id="previewBtn">👁️ Actualizar vista previa</button>
+          <button type="button" class="secondary-btn" id="copyBtn">📋 Copiar ticket</button>
+          <button type="submit" class="submit-btn">🚀 Enviar Ticket</button>
+        </div>
+      </form>
+    </section>
+
+    <aside class="preview-panel" id="previewPanel">
+      <div class="preview-header">
+        <span class="preview-badge">🧾 Vista previa</span>
+        <h3>Ticket generado</h3>
+      </div>
+      <pre id="ticketPreview">Aquí aparecerá la vista previa del ticket...</pre>
+    </aside>
+  </main>
+
+  <div class="modal-overlay" id="confirmModal">
+    <div class="modal-box">
+      <div class="modal-icon">🚀</div>
+      <h3>Confirmar envío</h3>
+      <p>Se abrirá WhatsApp con el ticket listo para enviar al cliente.</p>
+
+      <div class="modal-actions">
+        <button class="secondary-btn" id="cancelSend">Cancelar</button>
+        <button class="submit-btn" id="confirmSend">Sí, enviar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>
+
